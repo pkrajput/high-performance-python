@@ -1,0 +1,20 @@
+Timer unit: 1e-09 s
+
+Total time: 9.91982 s
+File: /tmp/ipykernel_27399/3750789470.py
+Function: construct_julia_set at line 23
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    23                                           def construct_julia_set(x_range, y_range, x_min, y_min, x_max, y_max, c, max_module, n_iterations):
+    24         1       3346.0   3346.0      0.0      width, height = x_max - x_min, y_max - y_min
+    25         1     658170.0 658170.0      0.0      julia_set = initialize_julia_set(x_range, y_range)
+    26                                           
+    27       500     163826.0    327.7      0.0      for i in range(x_range):
+    28    250000   65963157.0    263.9      0.7          for j in range(y_range):
+    29                                           
+    30    250000  185020406.0    740.1      1.9              z = complex(i / x_range * width + x_min, j / y_range * height + y_min)
+    31    250000 9185439413.0  36741.8     92.6              ratio, converges = check_for_convergence(z, c, n_iterations, max_module)
+    32    250000  482568859.0   1930.3      4.9              julia_set[i, j] = 1 - np.sqrt(ratio)
+    33                                               
+    34         1        215.0    215.0      0.0      return julia_set
